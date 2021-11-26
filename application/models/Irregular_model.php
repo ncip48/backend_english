@@ -16,6 +16,15 @@ class Irregular_model extends CI_Model
         return $query->result_array();
     }
 
+    function insert_irregular($data = array())
+    {
+        $jumlah = count($data);
+
+        if ($jumlah > 0) {
+            $this->db->insert_batch('irregular', $data);
+        }
+    }
+
     public function insert_entry()
     {
         $this->title    = $_POST['title']; // please read the below note

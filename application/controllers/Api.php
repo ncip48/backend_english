@@ -2,6 +2,9 @@
 defined('BASEPATH') or exit('No direct script access allowed');
 
 use chriskacerguis\RestServer\RestController;
+use Box\Spout\Writer\Common\Creator\WriterEntityFactory;
+use Box\Spout\Common\Entity\Row;
+use Box\Spout\Reader\Common\Creator\ReaderEntityFactory;
 
 class Api extends RestController
 {
@@ -31,10 +34,49 @@ class Api extends RestController
         $this->format_respond(true, $irregular, 'irregular verb successfully loaded');
     }
 
-    public function upload_irrengular_post()
+    public function upload_irregular_post()
     {
-        $irregular = $this->irregular->get_irregular();
-        $this->format_respond(true, $irregular, 'irregular verb successfully loaded');
+        $config['upload_path']      = './temp_doc/'; //siapkan path untuk upload file
+        $config['allowed_types']    = 'xlsx|xls'; //siapkan format file
+        $config['file_name']        = 'doc' . time(); //rename file yang diupload
+        $this->load->library('upload', $config);
+        $cekarr = $this->db->get('irregular')->result_array();
+        $arr = array_column($cekarr, 'verb_one');
+
+        if ($this->upload->do_upload('excel')) {
+            $file   = $this->upload->data();
+            $reader = ReaderEntityFactory::createXLSXReader(); //buat xlsx reader
+            $reader->open('./temp_doc/' . $file['file_name']); //open file xlsx yang baru saja diunggah    
+            foreach ($reader->getSheetIterator() as $sheet) {
+                $numRow = 1;
+                $save   = array();
+                foreach ($sheet->getRowIterator() as $row) {
+                    if ($numRow > 1) {
+                        $cells = $row->getCells();
+                        $sinc = in_array($cells[0], $arr);
+                        if (!$sinc) {
+                            $data = array(
+                                'verb_one' => $cells[0],
+                                'verb_two' => $cells[1],
+                                'verb_three' => $cells[2],
+                                'verb_ing' => $cells[3],
+                                'translate' => $cells[4],
+                                'hit' => '0'
+                            );
+                            array_push($save, $data);
+                        }
+                    }
+                    $numRow++;
+                }
+                $this->irregular->insert_irregular($save);
+                $reader->close();
+                unlink('./temp_doc/' . $file['file_name']);
+
+                $this->format_respond(true, null, 'success uploading files');
+            }
+        } else {
+            $this->format_respond(false, null, 'error while uploading files', $this->upload->display_errors());
+        }
     }
 
 
