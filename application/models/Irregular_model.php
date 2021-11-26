@@ -19,7 +19,6 @@ class Irregular_model extends CI_Model
     function insert_irregular($data = array())
     {
         $jumlah = count($data);
-
         if ($jumlah > 0) {
             $this->db->insert_batch('irregular', $data);
         }

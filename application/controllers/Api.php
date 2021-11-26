@@ -2,8 +2,6 @@
 defined('BASEPATH') or exit('No direct script access allowed');
 
 use chriskacerguis\RestServer\RestController;
-use Box\Spout\Writer\Common\Creator\WriterEntityFactory;
-use Box\Spout\Common\Entity\Row;
 use Box\Spout\Reader\Common\Creator\ReaderEntityFactory;
 
 class Api extends RestController
@@ -16,7 +14,7 @@ class Api extends RestController
         $this->load->model('irregular_model', 'irregular');
     }
 
-    public function format_respond($success, $data = null, $msg, $error = null)
+    private function format_respond($success, $data = null, $msg, $error = null)
     {
         $error = [
             'success' => $success,
