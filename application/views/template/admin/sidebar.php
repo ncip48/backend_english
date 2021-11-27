@@ -50,14 +50,14 @@
         </div>
         </li> -->
 
-    <?php if ($menu == 'kategori') : ?>
+    <?php if ($menu == 'regular') : ?>
         <li class="nav-item active">
         <?php else : ?>
         <li class="nav-item">
         <?php endif; ?>
-        <a class="nav-link" href="<?= base_url('admin/kategori'); ?>">
-            <i class="fas fa-fw fa-list-ul"></i>
-            <span>Kategori </span>
+        <a class="nav-link" href="<?= base_url('admin/regular'); ?>">
+            <i class="fas fa-fw fa-font"></i>
+            <span>Regular Verb </span>
         </a>
         </li>
 
@@ -67,19 +67,19 @@
             <li class="nav-item">
             <?php endif; ?>
             <a class="nav-link" href="<?= base_url('admin/irregular'); ?>">
-                <i class="fas fa-fw fa-box"></i>
-                <span>Irregular Verbs </span>
+                <i class="fas fa-fw fa-remove-format"></i>
+                <span>Irregular Verb </span>
             </a>
             </li>
 
-            <?php if ($menu == 'karyawan') : ?>
+            <?php if ($menu == 'user') : ?>
                 <li class="nav-item active">
                 <?php else : ?>
                 <li class="nav-item">
                 <?php endif; ?>
-                <a class="nav-link" href="<?= base_url('admin/karyawan'); ?>">
+                <a class="nav-link" href="<?= base_url('admin/user'); ?>">
                     <i class="fas fa-fw fa-user-friends"></i>
-                    <span>Karyawan </span>
+                    <span>Users </span>
                 </a>
                 </li>
 
@@ -150,140 +150,36 @@
 
                 <!-- Heading -->
                 <div class="sidebar-heading">
-                    Website
+                    Pengaturan
                 </div>
 
 
-
-                <!-- Nav Item - Pages Collapse Menu -->
-                <?php if ($menu == 'acara') : ?>
+                <?php if ($menu == 'menu-5') : ?>
                     <li class="nav-item active">
                     <?php else : ?>
                     <li class="nav-item">
                     <?php endif; ?>
-                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseAcara" aria-expanded="true" aria-controls="collapseAcara">
-                        <i class="fas fa-fw fa-calendar-day"></i>
-                        <span>Acara</span>
+                    <a class="nav-link" href="<?= base_url('admin/setting'); ?>">
+                        <i class="fas fa-fw fa-cog"></i>
+                        <span>Setting Akun</span>
                     </a>
-                    <div id="collapseAcara" class="collapse" aria-labelledby="headingAcara" data-parent="#accordionSidebar">
-                        <div class="bg-white py-2 collapse-inner rounded">
-                            <h6 class="collapse-header">Pilih Menu:</h6>
-                            <a class="collapse-item" href="<?= base_url('admin/tambah_acara'); ?>">Tambah Acara</a>
-                            <a class="collapse-item" href="<?= base_url('admin/acara'); ?>">Data Acara</a>
-                            <a class="collapse-item" href="<?= base_url('admin/kategori_acara'); ?>">Data Kategori</a>
-                        </div>
-                    </div>
                     </li>
 
-
-                    <!-- Nav Item - Pages Collapse Menu -->
-                    <?php if ($menu == 'gallery') : ?>
-                        <li class="nav-item active">
-                        <?php else : ?>
-                        <li class="nav-item">
-                        <?php endif; ?>
-                        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseGallery" aria-expanded="true" aria-controls="collapseGallery">
-                            <i class="fas fa-fw fa-image"></i>
-                            <span>Gallery</span>
+                    <!-- Nav Item - Tables -->
+                    <li class="nav-item">
+                        <a class="nav-link" href="" data-toggle="modal" data-target="#logoutModal">
+                            <i class="fas fa-fw fa-sign-out-alt"></i>
+                            <span>Keluar</span>
                         </a>
-                        <div id="collapseGallery" class="collapse" aria-labelledby="headingGallery" data-parent="#accordionSidebar">
-                            <div class="bg-white py-2 collapse-inner rounded">
-                                <h6 class="collapse-header">Pilih Menu:</h6>
-                                <a class="collapse-item" href="<?= base_url('admin/tambah_gallery'); ?>">Tambah Gallery</a>
-                                <a class="collapse-item" href="<?= base_url('admin/gallery'); ?>">Data Gallery</a>
-                                <a class="collapse-item" href="<?= base_url('admin/kategori_gallery'); ?>">Data Kategori</a>
-                            </div>
-                        </div>
-                        </li>
+                    </li>
 
+                    <!-- Divider -->
+                    <hr class="sidebar-divider d-none d-md-block">
 
-                        <?php if ($menu == 'kontak') : ?>
-                            <li class="nav-item active">
-                            <?php else : ?>
-                            <li class="nav-item">
-                            <?php endif; ?>
-                            <a class="nav-link" href="<?= base_url('admin/kontak'); ?>">
-                                <i class="fas fa-fw fa-address-book"></i>
-                                <span>Kontak</span>
-                            </a>
-                            </li>
-
-
-                            <!-- Nav Item - Pages Collapse Menu -->
-                            <?php if ($menu == 'home') : ?>
-                                <li class="nav-item active">
-                                <?php else : ?>
-                                <li class="nav-item">
-                                <?php endif; ?>
-                                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseHome" aria-expanded="true" aria-controls="collapseHome">
-                                    <i class="fas fa-fw fa-home"></i>
-                                    <span>Home</span>
-                                </a>
-                                <div id="collapseHome" class="collapse" aria-labelledby="headingHome" data-parent="#accordionSidebar">
-                                    <div class="bg-white py-2 collapse-inner rounded">
-                                        <h6 class="collapse-header">Pilih Menu:</h6>
-                                        <a class="collapse-item" href="<?= base_url('admin/utama'); ?>">Utama</a>
-                                        <a class="collapse-item" href="<?= base_url('admin/tagline'); ?>">Tagline</a>
-                                    </div>
-                                </div>
-                                </li>
-
-
-                                <!-- Nav Item - Pages Collapse Menu -->
-                                <?php if ($menu == 'website') : ?>
-                                    <li class="nav-item active">
-                                    <?php else : ?>
-                                    <li class="nav-item">
-                                    <?php endif; ?>
-                                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="true" aria-controls="collapsePages">
-                                        <i class="fas fa-fw fa-cogs"></i>
-                                        <span>Website</span>
-                                    </a>
-                                    <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
-                                        <div class="bg-white py-2 collapse-inner rounded">
-                                            <h6 class="collapse-header">Pilih Menu:</h6>
-                                            <a class="collapse-item" href="<?= base_url('admin/about'); ?>">About</a>
-                                            <a class="collapse-item" href="<?= base_url('admin/website'); ?>">Settings</a>
-                                            <a class="collapse-item" href="<?= base_url('admin/email_sender'); ?>">Email Sender</a>
-                                        </div>
-                                    </div>
-                                    </li>
-
-                                    <!-- Divider -->
-                                    <hr class="sidebar-divider">
-
-                                    <!-- Heading -->
-                                    <div class="sidebar-heading">
-                                        Pengaturan
-                                    </div>
-
-
-                                    <?php if ($menu == 'menu-5') : ?>
-                                        <li class="nav-item active">
-                                        <?php else : ?>
-                                        <li class="nav-item">
-                                        <?php endif; ?>
-                                        <a class="nav-link" href="<?= base_url('admin/setting'); ?>">
-                                            <i class="fas fa-fw fa-cog"></i>
-                                            <span>Setting Akun</span>
-                                        </a>
-                                        </li>
-
-                                        <!-- Nav Item - Tables -->
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="" data-toggle="modal" data-target="#logoutModal">
-                                                <i class="fas fa-fw fa-sign-out-alt"></i>
-                                                <span>Keluar</span>
-                                            </a>
-                                        </li>
-
-                                        <!-- Divider -->
-                                        <hr class="sidebar-divider d-none d-md-block">
-
-                                        <!-- Sidebar Toggler (Sidebar) -->
-                                        <div class="text-center d-none d-md-inline">
-                                            <button class="rounded-circle border-0" id="sidebarToggle"></button>
-                                        </div>
+                    <!-- Sidebar Toggler (Sidebar) -->
+                    <div class="text-center d-none d-md-inline">
+                        <button class="rounded-circle border-0" id="sidebarToggle"></button>
+                    </div>
 
 </ul>
 <!-- End of Sidebar -->

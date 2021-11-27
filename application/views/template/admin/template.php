@@ -19,6 +19,7 @@
     <!-- Custom styles for this template-->
     <link href="<?= base_url('assets/'); ?>css/sb-admin-2.min.css" rel="stylesheet">
     <link href="<?= base_url('assets/'); ?>vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/placeholder-loading/dist/css/placeholder-loading.min.css">
 
     <!--Daterangepicker -->
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
@@ -42,68 +43,20 @@
             min-height: 300px !important;
         }
 
-        ::-webkit-scrollbar {
-            width: 5px;
-            height: 5px;
+        .btn,
+        .btn:active,
+        .btn:focus,
+        .btn.active,
+        .btn:active:focus,
+        .form-control:focus {
+            box-shadow: none;
         }
 
-        ::-webkit-scrollbar-track {
-            width: 5px;
-            height: 5px;
-            background: #f5f5f5;
-        }
-
-        ::-webkit-scrollbar-thumb {
-            width: 1em;
-            height: 1em;
-            background-color: #ddd;
-            outline: 1px solid slategrey;
-            border-radius: 1rem;
-        }
-
-        .text-small {
-            font-size: 0.9rem;
-        }
-
-        .messages-box,
-        .chat-box {
-            height: 505px;
-            overflow-y: scroll;
-        }
-
-        .rounded-lg {
-            border-radius: 0.5rem;
-        }
-
-        /* input::placeholder {
-            font-size: 0.9rem;
-            color: #999;
-        } */
-
-        .active-success {
-            background-color: #1cc88a !important;
-        }
-
-        .separator {
-            display: flex;
-            align-items: center;
-            text-align: center;
-        }
-
-        .separator::before,
-        .separator::after {
-            content: '';
-            flex: 1;
-            border-bottom: 1px solid #000;
-        }
-
-        .separator:not(:empty)::before {
-            margin-right: .25em;
-        }
-
-        .separator:not(:empty)::after {
-            margin-left: .25em;
-        }
+        .page-item.active .page-link {
+            color: #fff;
+            background-color: #e74a3b;
+            border-color: #e74a3b;
+            box-shadow: none;
     </style>
 </head>
 

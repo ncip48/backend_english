@@ -33,7 +33,7 @@
                                     <th scope="col">Verb Two</th>
                                     <th scope="col">Verb Three</th>
                                     <th scope="col">Verb ing</th>
-                                    <th scope="col">Translate</th>
+                                    <th scope="col">Artinya</th>
                                     <th scope="col">Aksi</th>
                                 </tr>
                             </thead>
@@ -208,6 +208,7 @@
         $("#mytablediv").hide();
         loadData();
         BindTable();
+        // $('#dynamic_content').html(make_skeleton());
 
         $("#refresh-data").click(function() {
             $("#mytable").DataTable().clear()
@@ -254,6 +255,16 @@
         var tgl = $(this).data('tgl');
         $('#tutup_modal #tutupData #tutup-data').html('<div class="modal-body"><p>Anda yakin ingin menutup absen pegawai tanggal <b>' + tgl + '</b> atas nama <b>' + nama + '</b></p></div><div class="modal-footer"><button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button><a href="<?= base_url('update/tutup_absen_pegawai/daftar_absen/') ?>' + tgl + '?id=' + id + '" class="btn btn-warning">Tutup Absen</a></div>')
     });
+
+    function make_skeleton() {
+        var output = '';
+        for (var count = 0; count < 5; count++) {
+            output += '<div class="ph-row">';
+            output += '<div class="ph-col-6"></div>';
+            output += '</div>';
+        }
+        return output;
+    }
 
     function BindTable() {
         myTable = $("#mytable").DataTable({

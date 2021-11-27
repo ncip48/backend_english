@@ -35,13 +35,26 @@ class Admin extends CI_Controller
     public function irregular()
     {
         $data['menu'] = 'irregular';
-        $data['title'] = 'Irregular Verbs';
+        $data['title'] = 'Irregular Verb';
         $data['user'] = $this->db->get_where('irregular', ['verb_one' => 'arrive'])->row_array();
 
         $this->load->view('template/admin/template', $data);
         $this->load->view('template/admin/sidebar', $data);
         $this->load->view('template/admin/topbar', $data);
         $this->load->view('admin/irregular', $data);
+        $this->load->view('template/admin/footer', $data);
+    }
+
+    public function regular()
+    {
+        $data['menu'] = 'regular';
+        $data['title'] = 'Regular Verb';
+        $data['user'] = $this->db->get_where('irregular', ['verb_one' => 'arrive'])->row_array();
+
+        $this->load->view('template/admin/template', $data);
+        $this->load->view('template/admin/sidebar', $data);
+        $this->load->view('template/admin/topbar', $data);
+        $this->load->view('admin/regular', $data);
         $this->load->view('template/admin/footer', $data);
     }
 }

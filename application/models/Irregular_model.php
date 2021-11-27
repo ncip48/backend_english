@@ -2,7 +2,6 @@
 
 class Irregular_model extends CI_Model
 {
-    // Fetch siswa
     function get_irregular($search = "")
     {
         $this->db->select('*');
